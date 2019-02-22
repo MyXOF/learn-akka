@@ -1,0 +1,38 @@
+language: java
+
+#dist: trusty
+#sudo: required
+
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode10.1 # with JDK11.0.1+13 installed
+      name: osx-oraclejdk11
+    - os: osx
+      osx_image: xcode9.3  # with JDK1.8.0_112-b16 installed
+      name: osx-oraclejdk8
+    - os: linux
+      name: linux-oraclejdk8
+      dist: trusty
+      jdk: oraclejdk8
+    - os: linux
+      name: linux-oraclejdk11
+      dist: trusty
+      jdk: oraclejdk11
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+
+# skip `before_install` stage
+before_install: true
+
+# skip `install` stage
+install: true
+
+script:
+  - java -version
+  - mvn clean test
+
+after_success:
+
