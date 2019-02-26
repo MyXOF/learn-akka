@@ -11,6 +11,11 @@
 	</parent>
 	<artifactId>quick-start</artifactId>
 	<name>quick-start</name>
-
-
+	<dependencies>
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-actor_2.12</artifactId>
+			<version>${akka.version}</version>
+		</dependency>
+	</dependencies>
 </project>
