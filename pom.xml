@@ -22,6 +22,7 @@
 	<modules>
 		<module>quick-start</module>
 		<module>cluster</module>
+		<module>distributed-data</module>
 	</modules>
 	<dependencies>
 
