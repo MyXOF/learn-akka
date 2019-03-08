@@ -62,13 +62,13 @@ public class DataBot extends AbstractActor {
 			// add
 			log.info("Adding: {}", s);
 			Update<ORSet<String>> update = new Update<>(dataKey, ORSet.create(), Replicator.writeLocal(),
-					curr -> curr.add(node, s));
+					curr -> curr.add(node.selfUniqueAddress(), s));
 			replicator.tell(update, getSelf());
 		} else {
 			// remove
 			log.info("Removing: {}", s);
 			Update<ORSet<String>> update = new Update<>(dataKey, ORSet.create(), Replicator.writeLocal(),
-					curr -> curr.remove(node, s));
+					curr -> curr.remove(node.selfUniqueAddress(), s));
 			replicator.tell(update, getSelf());
 		}
 	}
